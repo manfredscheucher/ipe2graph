@@ -22,7 +22,7 @@ Outputs:
 
 ## Example
 
-The included example is the [Koester graph](https://en.wikipedia.org/wiki/Koester_graph), a 4-chromatic triangle-free planar graph.
+The included example is a Koester graph, a 4-chromatic triangle-free planar graph.
 
 ```
 $ sage ipe2graph2.sage examples/koester_graph.ipe
