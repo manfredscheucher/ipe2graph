@@ -1,5 +1,5 @@
 #!/usr/bin/env sage
-from sys import argv
+import argparse
 import xml.etree.ElementTree as ET
 
 
@@ -67,8 +67,13 @@ def ipe2graph(path):
 	return G
 
 
-if len(argv) > 1:
-	path = argv[1]
+if __name__ == '__main__':
+	parser = argparse.ArgumentParser(
+		description="Read a graph from an IPE file and export as PNG and sparse6.")
+	parser.add_argument("ipe_file", help="path to the .ipe input file")
+	args = parser.parse_args()
+
+	path = args.ipe_file
 	G = ipe2graph(path)
 
 	png_path = path + ".png"
@@ -80,6 +85,3 @@ if len(argv) > 1:
 	with open(s6_path, "w") as f:
 		f.write(G.sparse6_string() + "\n")
 	print(f"wrote spars6 string to {s6_path}")
-else:
-	print("usage: sage ipe2graph2.sage <file.ipe>")
-	print("description: read the graph from an ipe file")
