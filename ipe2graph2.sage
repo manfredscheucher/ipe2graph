@@ -67,7 +67,8 @@ def ipe2graph(path):
 	return G
 
 
-if __name__ == '__main__':
+import sys as _sys
+if any(a.endswith('.ipe') for a in _sys.argv):
 	parser = argparse.ArgumentParser(
 		description="Read a graph from an IPE file and export as PNG and sparse6.")
 	parser.add_argument("ipe_file", help="path to the .ipe input file")
